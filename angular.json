@@ -30,7 +30,9 @@
             "styles": [
               "src/styles.less"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/cf-client-core/dist/iife-es6.js"
+            ]
           },
           "configurations": {
             "production": {

@@ -1,2 +1,2 @@
-<div *ngIf="stage === 'intro'">intro</div>
-<div *ngIf="stage === 'ques'">ques</div>
+<app-cover *ngIf="introduction && !questions" [intro]='introduction'></app-cover>
+<div *ngIf="questions">ques</div>

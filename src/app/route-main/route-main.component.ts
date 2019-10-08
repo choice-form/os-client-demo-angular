@@ -23,10 +23,8 @@ export class RouteMainComponent implements OnInit {
       error: (message) => { },
       notify: (message) => { },
       locateError: () => { },
-      translate: (key, options) => {
-        return key;
-      },
-      setLocale: () => {}
+      translate: window.CFI18n.translate,
+      setLocale: window.CFI18n.setLocale,
     });
 
     this.introduction = await Core.fetchIntro();

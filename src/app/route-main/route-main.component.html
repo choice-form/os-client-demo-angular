@@ -1,8 +1,10 @@
+<div *ngIf="notification">{{notification}}</div>
+
 <app-cover *ngIf="introduction && !questions"
            (handleStart)='start()'
            [intro]='introduction'></app-cover>
 <div *ngIf="questions">
   <app-nodes *ngFor="let node of questions.nodes"
-             [eventHandler]='questions.handleEvents'
+             [state]='questions'
              [node]='node'></app-nodes>
 </div>

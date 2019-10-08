@@ -10,4 +10,7 @@ export class ChoiceComponent implements OnInit {
   @Input() eventHandler: CFUIEventHander;
   constructor() { }
   ngOnInit() { }
+  clickOption(option: CFOption) {
+    this.eventHandler.handleOptionClick(option, this.node);
+  }
 }

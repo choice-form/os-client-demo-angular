@@ -10,6 +10,7 @@ import { ChoiceComponent } from './choice/choice.component';
   imports: [
     CommonModule
   ],
-  exports: [NodesComponent]
+  exports: [NodesComponent],
+  entryComponents: [ChoiceComponent],
 })
 export class NodesModule { }

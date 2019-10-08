@@ -1,3 +1,7 @@
 <div>{{node.quesType}}</div>
-<ng-template app-dynamic-nodes></ng-template>
+<ng-template appDynamicNodes></ng-template>
 
+<button *ngIf="state.prevButton"
+(click)='clickPrev()'>{{state.prevButton}}</button>
+<button *ngIf="state.nextButton"
+(click)='clickNext()'>{{state.nextButton}}</button>

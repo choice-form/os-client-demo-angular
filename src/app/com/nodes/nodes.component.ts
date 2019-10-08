@@ -37,9 +37,9 @@ export class DynamicNodesDirective {
 
 export class NodesComponent implements OnInit {
 
-  @Input() node: CFQuestion;
+  @Input() state: CFState;
 
-  @Input() eventHandler: CFUIEventHander;
+  @Input() node: CFQuestion;
 
   @ViewChild(DynamicNodesDirective, { static: true }) dynamicBox: DynamicNodesDirective;
 
@@ -62,6 +62,14 @@ export class NodesComponent implements OnInit {
     const componentRef = dynamicBoxRef.createComponent(componentFactory);
     const componentInst = (componentRef.instance as NodeComponentBase);
     componentInst.node = this.node;
-    componentInst.eventHandler = this.eventHandler;
+    componentInst.eventHandler = this.state.handleEvents;
+  }
+
+  clickPrev() {
+    this.state.handleEvents.handlePrevClick();
+  }
+
+  clickNext() {
+    this.state.handleEvents.handleNextClick();
   }
 }

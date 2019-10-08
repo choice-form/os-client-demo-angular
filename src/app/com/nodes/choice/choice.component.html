@@ -7,4 +7,5 @@
 
 <div class='option'
 *ngFor="let option of node.options"
-[ngClass]="{'selected': option.selected}">{{option.text}}</div>
+[ngClass]="{'selected': option.selected}"
+(click)='clickOption(option)'>{{option.text}}</div>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, SimpleChanges, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges, OnChanges, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-cover',
@@ -7,6 +7,7 @@ import { Component, OnInit, Input, SimpleChanges, OnChanges } from '@angular/cor
 })
 export class CoverComponent implements OnInit, OnChanges {
   @Input() intro: CFIntro;
+  @Output() handleStart = new EventEmitter<void>();
   constructor() { }
 
   ngOnInit() {
@@ -14,5 +15,8 @@ export class CoverComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     console.log(this.intro);
   }
-
+  start() {
+    console.log('start');
+    this.handleStart.emit();
+  }
 }

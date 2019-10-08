@@ -1,2 +1,4 @@
-<app-cover *ngIf="introduction && !questions" [intro]='introduction'></app-cover>
+<app-cover *ngIf="introduction && !questions"
+           (handleStart)='start()'
+           [intro]='introduction'></app-cover>
 <div *ngIf="questions">ques</div>

@@ -25,9 +25,14 @@ export class RouteMainComponent implements OnInit {
       locateError: () => { },
       translate: window.CFI18n.translate,
       setLocale: window.CFI18n.setLocale,
+      setter: (obj, props) => {
+        Object.assign(obj, props);
+      }
     });
-
     this.introduction = await Core.fetchIntro();
   }
 
+  async start() {
+    this.questions = await Core.fetchQuestions();
+  }
 }

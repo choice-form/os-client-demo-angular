@@ -3,4 +3,4 @@
 <div>
   <img *ngFor="let item of intro.images" [src]="item.url" alt="">
 </div>
-<button>{{intro.nextButton}}</button>
+<button (click)='start()'>{{intro.nextButton}}</button>

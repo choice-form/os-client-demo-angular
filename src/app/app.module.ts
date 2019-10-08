@@ -8,7 +8,7 @@ import { RouteRewardComponent } from './route-reward/route-reward.component';
   declarations: [
     AppComponent,
     RouteMainComponent,
-    RouteRewardComponent
+    RouteRewardComponent,
   ],
   imports: [
     BrowserModule,

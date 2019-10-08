@@ -11,21 +11,25 @@ const { Core, Util } = window.CFClient;
 export class RouteMainComponent implements OnInit {
   introduction: CFIntro;
   questions: CFState;
+  stage: 'intro' | 'ques' = 'intro';
   constructor() { }
 
-  ngOnInit() {
-
+  async ngOnInit() {
     const query = Util.queryStringToObj();
-    Core.setup({
+    await Core.setup({
       surveyId: query.sid,
       indexUrl: location.href,
-      rewardUrl: location.orign + '/reward?sid=' + query.sid,
+      rewardUrl: location.origin + '/reward?sid=' + query.sid,
       error: (message) => { },
       notify: (message) => { },
       locateError: () => { },
-      translate
-
+      translate: (key, options) => {
+        return key;
+      },
+      setLocale: () => {}
     });
+
+    this.introduction = await Core.fetchIntro();
   }
 
 }

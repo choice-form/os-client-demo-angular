@@ -1,4 +1,8 @@
 <app-cover *ngIf="introduction && !questions"
            (handleStart)='start()'
            [intro]='introduction'></app-cover>
-<div *ngIf="questions">ques</div>
+<div *ngIf="questions">
+  <app-nodes *ngFor="let node of questions.nodes"
+             [eventHandler]='questions.handleEvents'
+             [node]='node'></app-nodes>
+</div>

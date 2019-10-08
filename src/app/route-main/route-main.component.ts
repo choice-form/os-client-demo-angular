@@ -11,7 +11,6 @@ const { Core, Util } = window.CFClient;
 export class RouteMainComponent implements OnInit {
   introduction: CFIntro;
   questions: CFState;
-  stage: 'intro' | 'ques' = 'intro';
   constructor() { }
 
   async ngOnInit() {
@@ -34,5 +33,7 @@ export class RouteMainComponent implements OnInit {
 
   async start() {
     this.questions = await Core.fetchQuestions();
+    console.log(this.questions);
   }
+
 }

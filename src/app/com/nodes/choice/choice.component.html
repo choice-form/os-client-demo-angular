@@ -1,0 +1,10 @@
+<h1>{{node.title}}</h1>
+<div>
+  <img *ngFor="let image of node.images"
+       [src]='image.url'>
+</div>
+<div>{{node.description}}</div>
+
+<div class='option'
+*ngFor="let option of node.options"
+[ngClass]="{'selected': option.selected}">{{option.text}}</div>

@@ -6,6 +6,8 @@ import { RouteMainComponent } from './route-main/route-main.component';
 import { RouteRewardComponent } from './route-reward/route-reward.component';
 import { CoverComponent } from './com/cover/cover.component';
 import { NodesModule } from './com/nodes/nodes.module';
+
+// enableProdMode();
 @NgModule({
   declarations: [
     AppComponent,

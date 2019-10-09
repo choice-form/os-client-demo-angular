@@ -44,7 +44,6 @@ export class RouteMainComponent implements OnInit {
 
   async start() {
     this.questions = await Core.fetchQuestions();
-    console.log(this.questions);
   }
 
 }

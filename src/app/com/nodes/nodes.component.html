@@ -1,6 +1,11 @@
+
+<!-- 这里是开头和结尾是所有题目共同的部分 -->
 <div>{{node.quesType}}</div>
+<!-- 此部分用于动态渲染独特题目内容 -->
 <ng-template appDynamicNodes></ng-template>
 
+<!-- 上一题和下一题按钮 -->
+<!-- 点击以后要调用核心模块对应的回调函数 -->
 <button *ngIf="state.prevButton"
 (click)='clickPrev()'>{{state.prevButton}}</button>
 <button *ngIf="state.nextButton"

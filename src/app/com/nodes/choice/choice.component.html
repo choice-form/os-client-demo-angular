@@ -1,3 +1,5 @@
+<!-- 在模板中按规则渲染出该题的一些信息 -->
+
 <h1>{{node.title}}</h1>
 <div>
   <img *ngFor="let image of node.images"
@@ -5,6 +7,8 @@
 </div>
 <div>{{node.description}}</div>
 
+<!-- 渲染出所有的选项 -->
+<!-- 当选项被点击以后必须回调核心模块提供的回调函数 -->
 <div class='option'
 *ngFor="let option of node.options"
 [ngClass]="{'selected': option.selected}"

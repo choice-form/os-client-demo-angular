@@ -31,8 +31,7 @@
               "src/styles.less"
             ],
             "scripts": [
-              "node_modules/cf-client-core/dist/i18n-umd-es6.js",
-              "node_modules/cf-client-core/dist/core-umd-es6.js"
+              "node_modules/cf-client-core/dist/umd-es6-with-i18n.js"
             ]
           },
           "configurations": {

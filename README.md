@@ -1,27 +1,15 @@
-# ClientDemoNgPlus
+# 说明
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.4.
+这里是一个基于[Angular](https://angular.io/)制作的巧思问卷答题客户端的例子
 
-## Development server
+该例子中值渲染了封面,选择题,结束节点,奖励页面作为演示.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+具体情况请结合注释阅读代码.
 
-## Code scaffolding
+在[angular.json](./angular.js)中配置了使用`umd-es6-with-i18n.js`核心包
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+具体的文档请参照[这里]()
 
-## Build
+获取该仓库后运行`yarn`安装依赖包,再运行`yarn start`启动项目,
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+访问:http://localhost:4201?sid=9bfb508f-f402-41c2-8f4c-43a65dfb2f4c

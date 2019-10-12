@@ -1,10 +1,14 @@
+<!-- 用来显示提示消息 -->
 <div *ngIf="notification">{{notification}}</div>
-
+<!-- 当只有首页数据的时候我们就显示封面 -->
 <app-cover *ngIf="introduction && !questions"
            (handleStart)='start()'
            [intro]='introduction'></app-cover>
+
+<!-- 当有题目数据的时候我们显示题目 -->
 <div *ngIf="questions">
-  <app-nodes *ngFor="let node of questions.nodes"
+  <!-- 这里循环所有题目并渲染出来 -->
+<app-nodes *ngFor="let node of questions.nodes"
              [state]='questions'
              [node]='node'></app-nodes>
 </div>

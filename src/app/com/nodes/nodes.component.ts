@@ -18,7 +18,7 @@ nodeComponentList.forEach(com => {
 
 interface NodeComponentBase {
   node: CFQuestion;
-  eventHandler: CFUIEventHander;
+  eventHandler: CFUIEventHandler;
 }
 
 
@@ -51,6 +51,10 @@ export class NodesComponent implements OnInit {
     this.dynamicPrepare();
   }
 
+  /**
+   * 因为有很多类型的题目,我们使用了动态组件
+   * 根据节点的展示类型动态选择组件渲染
+   */
   dynamicPrepare() {
     const componentName = this.textUtil.pascalize(this.node.quesType + '-component');
     const component = componentMaps[componentName];
@@ -66,9 +70,10 @@ export class NodesComponent implements OnInit {
   }
 
   clickPrev() {
+    // 点击上一题是要调用核心包提供的回调函数
     this.state.handleEvents.handlePrevClick();
   }
-
+    // 点击下一题是要调用核心包提供的回调函数
   clickNext() {
     this.state.handleEvents.handleNextClick();
   }

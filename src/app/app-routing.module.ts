@@ -1,13 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { RouteMainComponent } from './route-main/route-main.component';
-import { RouteRewardComponent } from './route-reward/route-reward.component';
 
 
-const routes: Routes = [
-  { path: '', component: RouteMainComponent },
-  { path: 'reward', component: RouteRewardComponent }
-];
+const routes: Routes = [];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

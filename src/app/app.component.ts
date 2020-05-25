@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Core } from '@choiceform/os-client-core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +17,7 @@ export class AppComponent {
     console.log('initializing');
     Core.setup({
       dynamic: false,
-      clientName: 'Angular Demo',
+      clientName: 'ALL',
       useWxSdk: true,
       error: (e) => this.showError(e),
       notify: (e) => this.notify(e),
@@ -24,6 +25,7 @@ export class AppComponent {
       setLocale: (e) => this.setLocale(e),
       suspendNotify: () => this.suspendNotify(),
       resumeNotify: () => this.resumeNotify(),
+      hostConfig: environment
     }).then(() => {
       console.log('initialized');
       this.initialized = true;

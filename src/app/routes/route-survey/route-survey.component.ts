@@ -7,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RouteSurveyComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+    console.log('survey');
+  }
 
   ngOnInit(): void {
   }

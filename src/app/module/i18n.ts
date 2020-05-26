@@ -1,7 +1,7 @@
 import { I18n } from '@choiceform/os-client-core';
-import customLang from 'custom-lang';
+import customI18n from '../../../custom-i18n/fake-module';
 const mf = new I18n.MessageFormat();
-const { zh_cn, en_us } = customLang;
+const { zh_cn, en_us } = customI18n;
 
 /**
  * 多语言资源配置

@@ -18,10 +18,7 @@
           "builder": "@angular-builders/custom-webpack:browser",
           "options": {
             "customWebpackConfig": {
-              "path": "custom-webpack.config.js",
-              "mergeStrategies": {
-                "externals": "replace"
-              }
+              "path": "extra-webpack.config.js"
             },
             "outputPath": "dist/os-client-demo-angular",
             "index": "src/index.html",
@@ -102,7 +99,7 @@
           "options": {
             "customWebpackConfig": {
               "path": "./extra-webpack.config.js"
-           },
+            },
             "browserTarget": "os-client-demo-angular:build"
           },
           "configurations": {

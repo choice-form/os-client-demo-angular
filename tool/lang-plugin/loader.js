@@ -2,7 +2,7 @@
 const loaderUtils = require("loader-utils");
 const fs = require('fs');
 const { getHash } = require('./hash');
-const dir = 'src/lang';
+const dir = 'lang';
 module.exports = function () {
   const files = fs.readdirSync(dir);
   let parsed = 'export default {\n';
@@ -17,5 +17,6 @@ module.exports = function () {
     parsed += `  '${code}': '${prefix}/${code}${hash}.json',\n`;
   });
   parsed += '};\n';
+  console.log(parsed);
   return parsed;
 };

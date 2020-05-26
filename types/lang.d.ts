@@ -1,9 +1,4 @@
-declare module 'custom-lang' {
-  const customLang: ICustomLang;
-  export default customLang;
-}
-
-interface ICustomLang {
+interface ICustomI18n {
   en_us: string;
   zh_cn: string;
 }

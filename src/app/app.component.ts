@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Core } from '@choiceform/os-client-core';
 import { environment } from 'src/environments/environment';
+// import { T } from './module/i18n';
+// console.log(T);
 
 @Component({
   selector: 'app-root',

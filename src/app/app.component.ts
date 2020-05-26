@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Core } from '@choiceform/os-client-core';
 import { environment } from 'src/environments/environment';
 import { T } from './module/i18n';
+import I18nComBase from './module/i18n-com-base';
 console.log(T);
 
 @Component({
@@ -9,13 +10,14 @@ console.log(T);
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent extends I18nComBase {
   title = 'os-client-demo-angular';
   notifications: { id: number, text: string }[] = [];
   error = '';
   notifySuspended: boolean;
   core: CFCore;
   constructor() {
+    super();
     Core.setup({
       dynamic: false,
       clientName: 'ALL',

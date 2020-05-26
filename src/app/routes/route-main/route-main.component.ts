@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Core } from '@choiceform/os-client-core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-route-main',
@@ -8,10 +9,12 @@ import { Core } from '@choiceform/os-client-core';
 })
 export class RouteMainComponent {
   startState: CFStartState;
-  constructor() {
-    Core.fetchStartState(() => { })
-      .then((state) => {
-        this.startState = state;
-      });
+  constructor(private router: Router) {
+    Core.fetchStartState((e) => {
+      this.router.navigateByUrl(e.route.replace(/^\.\//, '/'));
+    }).then((state) => {
+      this.startState = state;
+    });
   }
+
 }

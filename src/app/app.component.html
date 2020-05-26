@@ -1,3 +1,19 @@
-<div *ngIf='initialized'>
-  <router-outlet></router-outlet>
+<div *ngIf='core'>
+  <div *ngIf='error'
+       class="global-error">{{error}}</div>
+  <div *ngIf='!error'>
+    <div *ngIf='core.needPreviewFlag'
+         [ngStyle]="{'background': core.getTheme().contrast}"
+         class='preview-flag'>
+      预览测试
+    </div>
+    <div class='global-notification'>
+      <div class='notification-item'
+           *ngFor='let nt of notifications'>
+        {{nt.text}
+      </div>
+    </div>
+    <router-outlet></router-outlet>
+  </div>
+
 </div>

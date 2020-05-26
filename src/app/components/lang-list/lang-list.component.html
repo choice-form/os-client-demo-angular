@@ -1,0 +1,7 @@
+<div *ngIf='langTable && langTable.length > 1'>
+  <select value={{language}}
+          (change)='handleLangChange($event.target.value)'>
+    <option *ngFor='let lang of langTable'
+            value={{lang.id}}>{{lang.value}}</option>
+  </select>
+</div>

@@ -1,1 +1,6 @@
-<p>route-survey works!</p>
+<div *ngIf='surveyState'>
+  <app-answer-resume *ngIf='showAnswerResumer()'></app-answer-resume>
+  <div *ngIf='!showAnswerResumer()'>
+    <app-ques-container [model]='surveyState'></app-ques-container>
+  </div>
+</div>

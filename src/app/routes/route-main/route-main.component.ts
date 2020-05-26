@@ -16,5 +16,4 @@ export class RouteMainComponent {
       this.startState = state;
     });
   }
-
 }

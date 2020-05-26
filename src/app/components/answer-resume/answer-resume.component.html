@@ -1,0 +1,12 @@
+<div className='answer-resume'>
+  <h1>{{answerResumer.title}}</h1>
+  <p>{{answerResumer.message}}</p>
+  <div>
+    <button (click)='answerResumer.handleDeny()'>
+      {{answerResumer.denyText}}
+    </button>
+    <button (click)='answerResumer.handleSure()'>
+      {{answerResumer.sureText}}
+    </button>
+  </div>
+</div>

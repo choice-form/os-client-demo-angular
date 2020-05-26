@@ -12,9 +12,8 @@ export class AppComponent {
   notifications: { id: number, text: string }[] = [];
   error = '';
   notifySuspended: boolean;
-  initialized: boolean;
+  core: CFCore;
   constructor() {
-    console.log('initializing');
     Core.setup({
       dynamic: false,
       clientName: 'ALL',
@@ -26,9 +25,8 @@ export class AppComponent {
       suspendNotify: () => this.suspendNotify(),
       resumeNotify: () => this.resumeNotify(),
       hostConfig: environment
-    }).then(() => {
-      console.log('initialized');
-      this.initialized = true;
+    }).then((core) => {
+      this.core = core;
     });
   }
   /**

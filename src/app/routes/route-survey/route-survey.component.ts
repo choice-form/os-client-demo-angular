@@ -1,17 +1,19 @@
 import { Component, OnInit } from '@angular/core';
+import { Core } from '@choiceform/os-client-core';
 
 @Component({
   selector: 'app-route-survey',
   templateUrl: './route-survey.component.html',
   styleUrls: ['./route-survey.component.scss']
 })
-export class RouteSurveyComponent implements OnInit {
-
+export class RouteSurveyComponent {
+  surveyState: CFSurveyState;
   constructor() {
-    console.log('survey');
+    Core.fetchSurveyState().then(state => {
+      this.surveyState = state;
+    });
   }
-
-  ngOnInit(): void {
+  showAnswerResumer() {
+    return this.surveyState.answerResumer && this.surveyState.answerResumer.show;
   }
-
 }

@@ -1,0 +1,22 @@
+<div>
+  <div *ngFor='let node of model.nodes'>
+    <div class="question-rect">
+      <span class="question-error"
+            *ngIf='node.errorMessage'>
+        {{node.errorMessage}}
+      </span>
+      <app-dynamic-node [node]='node'
+                        [handler]='model.handleEvents'
+                        [theme]='model.theme'>
+      </app-dynamic-node>
+    </div>
+    <button *ngIf='model.prevButton'
+            (click)='model.handleEvents.handlePrevClick()'>
+      {{model.prevButton}}
+    </button>
+    <button *ngIf='model.nextButton'
+            (click)='model.handleEvents.handleNextClick()'>
+      {{model.nextButton}}
+    </button>
+  </div>
+</div>

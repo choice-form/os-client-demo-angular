@@ -1,10 +1,9 @@
 
 const loaderUtils = require("loader-utils");
 const fs = require('fs');
-const { getHash } = require('./hash');
+const { getHash, parseLangObj } = require('./hash');
 const dir = 'lang';
-module.exports = function (source) {
-  fs.writeFileSync('bbb.ts', source);
+module.exports = function () {
   const files = fs.readdirSync(dir);
   let parsed = '';
   // 配置参数
@@ -20,12 +19,9 @@ module.exports = function (source) {
   });
   // 以中文的字符集为基准生成整整的字符集
   let langCodes = fs.readFileSync('lang/zh_cn.ts').toString();
-  langCodes = langCodes.substring(langCodes.indexOf('{'), langCodes.lastIndexOf('}') + 1)
-    .replace(/\n/g, '');
-  const codeObj = (new Function(`return ${langCodes}`))();
+  const codeObj = parseLangObj(langCodes);
   replaceLangCode(codeObj);
   parsed += `export const LANG = ${JSON.stringify(codeObj, null, ' ')};\n`;
-  fs.writeFileSync('aaa.ts', parsed);
   return parsed;
 };
 

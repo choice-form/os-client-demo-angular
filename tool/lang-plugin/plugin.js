@@ -1,5 +1,5 @@
 const fs = require('fs');
-const { getHash } = require('./hash');
+const { getHash, parseLangObj } = require('./hash');
 const { getCdnFolder } = require('../dev');
 class LangPlugin {
   constructor(options) {
@@ -18,11 +18,8 @@ class LangPlugin {
         const origin = fs.readFileSync(`${directory}/${file}`).toString();
         const hash = local
           ? '' : '-' + getHash(langCode, origin);
-        const startIndex = origin.indexOf('{');
-        const endIndex = origin.lastIndexOf('}') + 1;
-        const replaced = 'return ' + origin.substring(startIndex, endIndex);
         try {
-          content = (new Function(replaced))();
+          content = parseLangObj(origin);
         } catch (e) {
           if (local) {
             // 本地环境不要被多语言的错误中断hot-server

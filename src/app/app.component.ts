@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Core } from '@choiceform/os-client-core';
 import { environment } from 'src/environments/environment';
 import { T } from './module/i18n';
-import I18nComBase from './module/i18n-com-base';
+import I18nComBase from './module/com-base';
 console.log(T);
 
 @Component({

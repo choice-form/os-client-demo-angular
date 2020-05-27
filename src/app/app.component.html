@@ -5,7 +5,7 @@
     <div *ngIf='core.needPreviewFlag'
          [ngStyle]="{'background': core.getTheme().contrast}"
          class='preview-flag'>
-      预览测试
+      {{T(LANG.preview.title)}}
     </div>
     <div class='global-notification'>
       <div class='notification-item'

@@ -3,20 +3,42 @@ const loaderUtils = require("loader-utils");
 const fs = require('fs');
 const { getHash } = require('./hash');
 const dir = 'lang';
-module.exports = function () {
+module.exports = function (source) {
+  fs.writeFileSync('bbb.ts', source);
   const files = fs.readdirSync(dir);
-  let parsed = 'export default {\n';
-  // 多语言文件,导出文件路径
+  let parsed = '';
+  // 配置参数
   const { local, prefix } = loaderUtils.getOptions(this);
+  // 每个语言文件导出一个资源连接地址
   files.forEach(file => {
     const filePath = dir + '/' + file;
     const code = file.replace('.ts', '');
     const source = fs.readFileSync(filePath).toString();
     const hash = local
       ? '' : '-' + getHash(code, source);
-    parsed += `  '${code}': '${prefix}/${code}${hash}.json',\n`;
+    parsed += `export const ${code} = '${prefix}/${code}${hash}.json';\n`;
   });
-  parsed += '};\n';
-  console.log(parsed);
+  // 以中文的字符集为基准生成整整的字符集
+  let langCodes = fs.readFileSync('lang/zh_cn.ts').toString();
+  langCodes = langCodes.substring(langCodes.indexOf('{'), langCodes.lastIndexOf('}') + 1)
+    .replace(/\n/g, '');
+  const codeObj = (new Function(`return ${langCodes}`))();
+  replaceLangCode(codeObj);
+  parsed += `export const LANG = ${JSON.stringify(codeObj, null, ' ')};\n`;
+  fs.writeFileSync('aaa.ts', parsed);
   return parsed;
 };
+
+
+function replaceLangCode(obj, prefix) {
+  const keys = Object.keys(obj);
+  for (const key of keys) {
+    const accumulation = prefix ? prefix + '.' + key : key;
+    const value = obj[key];
+    if (typeof value === 'string') {
+      obj[key] = accumulation;
+    } else {
+      replaceLangCode(value, accumulation);
+    }
+  }
+}

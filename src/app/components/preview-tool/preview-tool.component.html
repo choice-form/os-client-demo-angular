@@ -1,0 +1,86 @@
+<div class="preview-tool"
+     [ngClass]='{opened: model.opened}'>
+  <!-- 开关 -->
+  <div class="trigger"
+       (click)='model.opened = !model.opened'>
+    {{model.opened ? 'ㄨ' : 'ㄓ'}}
+  </div>
+  <!-- 主体,只有打开了才渲染 -->
+  <div *ngIf='model.opened'
+       class="main">
+    <!-- tab头部 -->
+    <div class="header">
+      <div [ngClass]="{active: currentTab === 'bookmark'}"
+           (click)='currentTab = "bookmark"'>
+        {{T(LANG.preview.bookmark.title)}}
+      </div>
+      <div [ngClass]="{active: currentTab === 'time'}"
+           (click)='currentTab = "time"'>
+        {{T(LANG.preview.time.title)}}
+      </div>
+    </div>
+    <!-- 书签栏 -->
+    <div class="bookmark"
+         *ngIf='currentTab === "bookmark"'>
+      <h2>{{T(LANG.preview.bookmark.title)}}</h2>
+      <p>
+        <input type="text"
+               [(ngModel)]="bookmarkName"
+               placeholder="{{T(LANG.preview.bookmark.input)}}">
+        <button (click)='model.history.handleSaveHistories(bookmarkName)'>
+          {{T(LANG.preview.bookmark.add)}}
+        </button>
+      </p>
+      <h3>{{T(LANG.preview.bookmark.about)}}</h3>
+      <p>{{T(LANG.preview.bookmark.detail)}}</p>
+      <ul>
+        <li *ngFor='let history of model.history.histories'>
+          <span>{{history.name}}</span>
+          <button (click)='model.history.handleImportHistory(history)'>
+            {{T(LANG.preview.bookmark.apply)}}
+          </button>
+          <button (click)='model.history.handleImportHistory(history)'>
+            {{T(LANG.preview.bookmark.delete)}}
+          </button>
+        </li>
+      </ul>
+      <h3>{{T(LANG.preview.bookmark.history)}}</h3>
+      <p>{{T(LANG.preview.bookmark.historyDetail)}}</p>
+      <ul>
+        <li *ngFor='let node of model.history.nodeList'>
+          <span>{{node.title}}</span>
+          <button (click)='model.history.handlePickNode(node)'>
+            {{T(LANG.preview.bookmark.revertTo)}}
+          </button>
+        </li>
+      </ul>
+    </div>
+    <div class="time">
+      <h2>{{T(LANG.preview.time.title)}}</h2>
+      <p>
+        <input type="text"
+               [(ngModel)]='timeTestName'
+               placeholder="{{T(LANG.preview.bookmark.input)}}" />
+        <button (click)='model.time.handleUpload(timeTestName)'>
+          {{T(LANG.preview.time.upload)}}
+        </button>
+      </p>
+      <h3>{{T(LANG.preview.time.about)}}</h3>
+      <p>{{T(LANG.preview.time.detail)}}</p>
+      <h3 class='time-title'>
+        <span>{{T(LANG.preview.time.total)}}</span>
+        <span>
+          {{T(LANG.preview.time.cost, { amount: model.time.timeInfo.allTime / 1000 })}}
+        </span>
+      </h3>
+      <ul>
+        <li *ngFor='let item of model.time.timeInfo.displayList'>
+          <span>{{item.name}}</span>
+          <span>
+            {{T(LANG.preview.time.cost, { amount: item.time / 1000 })}}
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

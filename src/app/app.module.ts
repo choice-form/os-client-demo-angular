@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RouteMainComponent } from './routes/route-main/route-main.component';
@@ -14,6 +14,8 @@ import { DynamicNodeComponent } from './components/dynamic-node/dynamic-node.com
 import { ChoiceNodeComponent } from './components/nodes/choice-node/choice-node.component';
 import { ShortTextNodeComponent } from './components/nodes/short-text-node/short-text-node.component';
 import { DynamicNodeAnchorDirective } from './directive/dynamic-node-anchor.directive';
+import { NoViewComponent } from './components/no-view/no-view.component';
+import { PreviewToolComponent } from './components/preview-tool/preview-tool.component';
 
 @NgModule({
   declarations: [
@@ -29,10 +31,13 @@ import { DynamicNodeAnchorDirective } from './directive/dynamic-node-anchor.dire
     ChoiceNodeComponent,
     ShortTextNodeComponent,
     DynamicNodeAnchorDirective,
+    NoViewComponent,
+    PreviewToolComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

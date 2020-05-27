@@ -1,27 +1,31 @@
-# OsClientDemoAngular
+这是一个基于Angular的常规的巧思调研在线答题程序,它来自于模板仓库[os-client-demo-angular](https://github.com/choice-form/os-client-demo-angular).
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
+我们没有使用angular自带的多语言策略,而是在angular构建的基础上配置了额外的构建设置来使用了自己自定义的多语言构建策略.
 
-## Development server
+基于该模块仓库新建了仓库以后需要对一下设置进行一些[自定义设置](#自定义设置)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## 前提
+你必须非常了解如何使用巧思调研的[核心包](https://choice-form.github.io/os-client-doc/doc/modules/_index_d_.html)才能继续后面的主题,如果你还不了解,请先查看核心包的使用方法再继续.
 
-## Build
+## 自定义设置
+从种子仓库为模板生成仓库后,需要自定义一些配置,再进行开发
++ 应用程序名称:需要在`src/app/app.component.ts`中的`Core.setup`方法的参数中设置`clientName`属性,这个名字需要和是设计端中选择答题渲染程序中的名字一样,
++ 构建配置:`build.config.js`文件,请查看其中的注释.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
+## typescript规则
++ 我们使用了typescript进行开发,其中的类型提示和报错提供了更友好的编程环境,
++ 核心包中`index.d.ts`提供了暴露给UI使用的数据类型定义,当我们在控制台打印或断点调试时会发现真实的数据对象上的属性会比`index.d.ts`中定义的属性多很多,切记这些属性都不能在UI中使用,因为他们是核心层使用的,随时可能发生变动被移除或被修改名字,UI中只能使用`index.d.ts`中暴露出来的属性,这一点:正好依靠typescript的类型检测可以规避
++ angular默认添加了一些额外的`tslint`检查规则,来保证更持久的可维护性.如果你不喜欢上述规则,可以更改`tslint.json`文件中的配置来变成你想要的规则.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## 对接与调试
++ 这个仓库写好以后,设计端是不知道的,所以设计端不会时候用这个程序,需要到设计端对接:把之前设置的本仓库的名称和发布后的程序地址写入到设计端主题管理器的代码中.
++ 本地启动项目
++ 打开设计端,发现主题管理器面板中的答题程序选择列表中会出现刚才添加的名称
++ 在下拉列表中选择时候用本项目作为答题程序,然后打开预览窗口,能看到预览窗口中显示的就是本项目的页面.
++ 修改一些本项目的代码,预览窗口会自动刷新.
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).

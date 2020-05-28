@@ -3,18 +3,5 @@
                  [langTable]='startState.langTable'
                  [language]='startState.language'>
   </app-lang-list>
-  <div>
-    <img *ngFor='let image of startState.images'
-         src={{image.large}}
-         width="300"
-         title={{image.originName}}>
-    <h1>{{startState.title}}</h1>
-    <p>{{startState.summary}}</p>
-    <button (click)='startState.handleEvents.handleNextClick()'>
-      {{startState.nextLoading 
-        ? 'loading...' 
-        :startState.nextButton
-      }}
-    </button>
-  </div>
+  <app-start-page [model]='startState'></app-start-page>
 </div>

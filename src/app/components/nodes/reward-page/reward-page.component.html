@@ -1,0 +1,25 @@
+<div>
+  <h1>{{model.rewardName}}</h1>
+  <p>{{model.title}}</p>
+  <div *ngIf='model.rewardType === "wechat"'>
+    <img src={model.wechatImage} />
+    <h2>{{model.wechatID}}</h2>
+    <h2>{{T(LANG.reward.wechat)}}</h2>
+    <p>{{model.rewardValue}}</p>
+  </div>
+  <div *ngIf='model.rewardType === "custom"'>
+    <p>{{T(LANG.reward.custom)}}</p>
+    <p>{{model.qrCode}}</p>
+    <input type="text"
+           [ngModel]='model.phoneNumber'
+           (change)='model.handleEvents.handleInputPhone($event.target.value, model)'
+           placeholder={{T(LANG.verification.inputPhone)}} />
+    <button>{{T(LANG.verification.getMessage)}}</button>
+  </div>
+  <button (click)='model.handleEvents.handlePrevClick()'>
+    {{model.prevButton}}
+  </button>
+  <button (click)='model.handleEvents.handleNextClick()'>
+    {{model.nextButton}}
+  </button>
+</div>

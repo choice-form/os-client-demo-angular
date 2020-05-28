@@ -1,0 +1,14 @@
+<div>
+  <img *ngFor='let image of model.images'
+       src={{image.large}}
+       width="300"
+       title={{image.originName}}>
+  <h1>{{model.title}}</h1>
+  <p>{{model.summary}}</p>
+  <button (click)='model.handleEvents.handleNextClick()'>
+    {{model.nextLoading 
+      ? 'loading...' 
+      :model.nextButton
+    }}
+  </button>
+</div>

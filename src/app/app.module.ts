@@ -18,6 +18,8 @@ import { NoViewComponent } from './components/no-view/no-view.component';
 import { PreviewToolComponent } from './components/preview-tool/preview-tool.component';
 import { TimerComponent } from './components/timer/timer.component';
 import { ProgressBarComponent } from './components/progress-bar/progress-bar.component';
+import { StartPageComponent } from './components/nodes/start-page/start-page.component';
+import { RewardPageComponent } from './components/nodes/reward-page/reward-page.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,8 @@ import { ProgressBarComponent } from './components/progress-bar/progress-bar.com
     PreviewToolComponent,
     TimerComponent,
     ProgressBarComponent,
+    StartPageComponent,
+    RewardPageComponent,
   ],
   imports: [
     BrowserModule,

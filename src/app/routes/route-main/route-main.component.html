@@ -1,4 +1,8 @@
-<div *ngIf='startState'>
+<div *ngIf='startState && !startState.hidden'>
+  <app-lang-list [handler]='startState.handleEvents'
+                 [langTable]='startState.langTable'
+                 [language]='startState.language'>
+  </app-lang-list>
   <div>
     <img *ngFor='let image of startState.images'
          src={{image.large}}

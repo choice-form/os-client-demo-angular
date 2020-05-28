@@ -3,6 +3,7 @@ import { LANG } from '../../../custom-i18n/fake-module';
 
 /**
  * 组件基类,提供一些常用的工具和方法
+ * 所有要在模板中使用这些工具的组件继承该组件即可
  */
 class ComBase {
   /**

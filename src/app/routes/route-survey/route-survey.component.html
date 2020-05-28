@@ -1,6 +1,19 @@
 <div *ngIf='surveyState'>
   <app-answer-resume *ngIf='showAnswerResumer()'></app-answer-resume>
   <div *ngIf='!showAnswerResumer()'>
+    <app-preview-tool [model]='surveyState.previewTool'
+                      *ngIf='surveyState.preview'>
+    </app-preview-tool>
+    <app-timer [time]='surveyState.restTime'
+               *ngIf='surveyState.limitTime'>
+    </app-timer>
+    <app-progress-bar [progress]='surveyState.progress'
+                      *ngIf='surveyState.needProgressBar'>
+    </app-progress-bar>
+    <app-lang-list [handler]='surveyState.handleEvents'
+                   [language]='surveyState.language'
+                   [langTable]='surveyState.langTable'></app-lang-list>
     <app-ques-container [model]='surveyState'></app-ques-container>
   </div>
+  <div></div>
 </div>

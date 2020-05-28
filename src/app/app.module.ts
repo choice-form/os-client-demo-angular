@@ -16,6 +16,8 @@ import { ShortTextNodeComponent } from './components/nodes/short-text-node/short
 import { DynamicNodeAnchorDirective } from './directive/dynamic-node-anchor.directive';
 import { NoViewComponent } from './components/no-view/no-view.component';
 import { PreviewToolComponent } from './components/preview-tool/preview-tool.component';
+import { TimerComponent } from './components/timer/timer.component';
+import { ProgressBarComponent } from './components/progress-bar/progress-bar.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { PreviewToolComponent } from './components/preview-tool/preview-tool.com
     DynamicNodeAnchorDirective,
     NoViewComponent,
     PreviewToolComponent,
+    TimerComponent,
+    ProgressBarComponent,
   ],
   imports: [
     BrowserModule,

@@ -55,7 +55,8 @@
         </li>
       </ul>
     </div>
-    <div class="time">
+    <div class="time"
+         *ngIf='currentTab === "time"'>
       <h2>{{T(LANG.preview.time.title)}}</h2>
       <p>
         <input type="text"

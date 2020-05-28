@@ -1,1 +1,26 @@
-<p>route-themes works!</p>
+<div *ngIf='model.data.theme'>
+  <div>{{time}}</div>
+  <div *ngIf='model.data.isStart'>
+    <app-start-page [model]='model.data'></app-start-page>
+  </div>
+  <div *ngIf='model.data.isGift'>
+    <app-start-page [model]='model.data'></app-start-page>
+  </div>
+  <div *ngIf='isNode()'>
+    <app-lang-list [handler]='model.data.handleEvents'
+                   [langTable]='model.data.langTable'
+                   [language]='model.data.language'>
+    </app-lang-list>
+    <app-timer *ngIf='model.data.limitTime'
+               [time]='model.data.restTime'>
+    </app-timer>
+    <app-progress-bar *ngIf='model.data.needProgressBar'
+                      [progress]='model.data.progress'>
+    </app-progress-bar>
+    <app-no-view *ngIf='updateViewNode()'
+                 [node]='noViewNode'>
+    </app-no-view>
+    <app-ques-container *ngIf='!noViewNode'
+                        [model]='model.data'></app-ques-container>
+  </div>
+</div>

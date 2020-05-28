@@ -49,4 +49,3 @@ const zhCN = {
 };
 
 type ILang = typeof zhCN;
-declare const LANG: ILang;

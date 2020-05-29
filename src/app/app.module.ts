@@ -23,6 +23,8 @@ import { RewardPageComponent } from './components/nodes/reward-page/reward-page.
 import { NodeVideoComponent } from './components/partials/node-video/node-video.component';
 import { NodeImageComponent } from './components/partials/node-image/node-image.component';
 import { NodeHeadComponent } from './components/partials/node-head/node-head.component';
+import { NodeBodyComponent } from './components/partials/node-body/node-body.component';
+import { OptionInputComponent } from './components/partials/option-input/option-input.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,8 @@ import { NodeHeadComponent } from './components/partials/node-head/node-head.com
     NodeVideoComponent,
     NodeImageComponent,
     NodeHeadComponent,
+    NodeBodyComponent,
+    OptionInputComponent,
   ],
   imports: [
     BrowserModule,

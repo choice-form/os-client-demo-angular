@@ -1,1 +1,30 @@
 <p>option-input works!</p>
+<div>
+  <div *ngIf='option.inputRule === "dropdown"'>
+    <select multiple='true'
+            (change)='handleDropdownChange($event.target.value)'>
+      <option hidden>{{option.placeholder}}</option>
+      <option *ngFor='let text of option.selectList'
+              value={{text}}>
+        {{text}}
+      </option>
+    </select>
+  </div>
+  <div *ngIf='option.inputRule === "autoComplete"'>
+    <app-auto-complete [option]='option'
+                       [theme]='theme'
+                       (handleChange)='handleChange.emit($event)'
+                       (handleTrigger)='handleTrigger.emit($event)'>
+    </app-auto-complete>
+  </div>
+  <div *ngIf='option.inputRule !== "autoComplete" && option.inputRule !== "dropdown"'>
+    <input type='text'
+           [ngModel]='option.value'
+           (change)='handleChange.emit($event.target.value)'
+           placeholder={{option.placeholder}} />
+  </div>
+  <div class="option-error"
+       *ngIf='option.errorMessage'>
+    {{option.errorMessage}}
+  </div>
+</div>

@@ -82,7 +82,7 @@ async function loadLocator(name: string, url: string): Promise<ILocator> {
  * 使用百度定位
  */
 async function locateByBaidu(): Promise<ILocatorResult> {
-  const locator = await loadLocator('baidu', 'public/baidu-locator.html');
+  const locator = await loadLocator('baidu', 'assets/baidu-locator.html');
   const promise = new Promise((resolve) => {
     locator.callback = (e) => {
       resolve(e);

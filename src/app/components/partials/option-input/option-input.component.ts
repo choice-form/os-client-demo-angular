@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-option-input',
@@ -8,8 +8,19 @@ import { Component, OnInit, Input, Output } from '@angular/core';
 export class OptionInputComponent implements OnInit {
   @Input() option: CFValidateOpt;
   @Input() theme: CFTheme;
-  @Output() handleChange: (value: string) => void;
-  @Output() handleTrigger: (value: string) => void;
+  @Output() handleChange = new EventEmitter<string>();
+  @Output() handleTrigger = new EventEmitter<string>();
+
+  handleDropdownChange(value: string) {
+    const values = String(this.option.value).split(',');
+    let newList = [...values];
+    if (!values.includes(value)) {
+      newList.push(value);
+    } else {
+      newList = newList.filter(i => i !== value);
+    }
+    this.handleChange.emit(newList.join());
+  }
   constructor() { }
 
   ngOnInit(): void {

@@ -1,1 +1,24 @@
-<p>auto-complete works!</p>
+<div>
+  <div>
+    <span *ngFor='let item of promoted'>
+      <img *ngIf='item.icon'
+           src={{item.icon}}
+           alt="" />
+      <span>{{item.name}}</span>
+      <span (click)='handleRemove(item.name)'>╳</span>
+    </span>
+  </div>
+
+  <input type='text'
+         [ngModel]='triggerText'
+         (change)='handleTrigger.emit($event.target.value)' />
+
+  <div>
+    <span *ngFor='let item of candidates'
+          (click)='handleAdd(item.name)'>
+      <img *ngIf='item.icon'
+           src={{item.icon}} />
+      <span>{{item.name}}</span>
+    </span>
+  </div>
+</div>

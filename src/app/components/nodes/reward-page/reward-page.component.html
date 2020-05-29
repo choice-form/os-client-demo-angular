@@ -10,7 +10,6 @@
   <div *ngIf='model.rewardType === "custom"'>
     <p>{{T(LANG.reward.custom)}}</p>
     <app-qr-code [text]='model.qrCode'></app-qr-code>
-    <p>{{model.qrCode}}</p>
     <input type="text"
            [ngModel]='model.phoneNumber'
            (change)='model.handleEvents.handleInputPhone($event.target.value, model)'

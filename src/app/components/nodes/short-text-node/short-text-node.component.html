@@ -1,1 +1,16 @@
-<p>short-text-node works!</p>
+<div class="short-text">
+  <app-node-head [node]='node'
+                 [theme]='theme'></app-node-head>
+  <app-node-body [theme]='theme'>
+    <app-option-input *ngFor='let option of node.options'
+                       (handleChange)='handler.handleOptionInput($event, option, node)'
+                       (handleTrigger)='handler.handleAutoCpltInput($event, option, node)'
+                       [theme]='theme'
+                       [option]='option'>
+    </app-option-input >
+  </app-node-body>
+  <app-other-options [handler]='handler'
+                     [node]='node'
+                     [theme]='theme'>
+  </app-other-options>
+</div>

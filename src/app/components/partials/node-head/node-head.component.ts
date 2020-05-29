@@ -7,6 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class NodeHeadComponent implements OnInit {
   @Input() node: CFQuestion;
+  @Input() theme: CFTheme;
   constructor() { }
 
   ngOnInit(): void {

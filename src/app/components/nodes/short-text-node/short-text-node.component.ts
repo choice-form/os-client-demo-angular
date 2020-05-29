@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-short-text-node',
@@ -6,7 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./short-text-node.component.scss']
 })
 export class ShortTextNodeComponent implements OnInit {
-
+  @Input() node: CFShortTextQuestion;
+  @Input() handler: CFUIEventHandler;
+  @Input() theme: CFTheme;
   constructor() { }
 
   ngOnInit(): void {

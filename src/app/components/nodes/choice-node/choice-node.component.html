@@ -1,5 +1,6 @@
 <div>
-  <app-node-head [node]='node'></app-node-head>
+  <app-node-head [node]='node'
+                 [theme]='theme'></app-node-head>
   <app-node-body [theme]='theme'>
     <app-choice-option *ngFor='let option of node.options'
                        [type]='node.selectType'

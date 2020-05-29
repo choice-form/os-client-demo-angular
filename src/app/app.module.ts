@@ -25,6 +25,7 @@ import { NodeImageComponent } from './components/partials/node-image/node-image.
 import { NodeHeadComponent } from './components/partials/node-head/node-head.component';
 import { NodeBodyComponent } from './components/partials/node-body/node-body.component';
 import { OptionInputComponent } from './components/partials/option-input/option-input.component';
+import { AutoCompleteComponent } from './components/partials/auto-complete/auto-complete.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { OptionInputComponent } from './components/partials/option-input/option-
     NodeHeadComponent,
     NodeBodyComponent,
     OptionInputComponent,
+    AutoCompleteComponent,
   ],
   imports: [
     BrowserModule,

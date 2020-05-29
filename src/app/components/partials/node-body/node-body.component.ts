@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-node-body',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./node-body.component.scss']
 })
 export class NodeBodyComponent implements OnInit {
-
+  @Input() theme: CFTheme;
   constructor() { }
 
   ngOnInit(): void {

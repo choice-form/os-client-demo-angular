@@ -12,7 +12,7 @@ export class RouteThemesComponent implements OnInit {
     Core.initRealtimePreview();
     this.model = Core.realtime;
     // 实时预览的是由编辑器的动作触发的,angular不能感知,所以通知一下
-    EventHub.on('REALTIME_CHANGE', () => {
+    EventHub.on('SET_PROPS', () => {
       appRef.tick();
     });
   }

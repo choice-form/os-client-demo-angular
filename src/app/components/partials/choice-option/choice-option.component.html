@@ -1,0 +1,25 @@
+<div>
+  <label for={{option.renderId}}>
+    <input type={{type}}
+           id={{option.renderId}}
+           [checked]='option.selected'
+           (click)='handleClick.emit()' />
+    <span>{{option.text}}</span>
+    <app-option-icon *ngIf='option.icon'
+                     [iconUrl]='option.icon'
+                     [activated]='option.selected'
+                     [cacheId]='option.renderId'
+                     [iconActiveUrl]='proxyOption.iconActive'>
+    </app-option-icon>
+    <img *ngIf='proxyOption.image'
+         src={{proxyOption.image.natural}}
+         width="300"
+         title={{proxyOption.image.originName}} />
+    <app-option-input *ngIf='needInput()'
+                      [option]='option'
+                      [theme]='theme'
+                      (handleChange)='handleChange.emit($event)'
+                      (handleTrigger)='handleTrigger.emit($event)'>
+    </app-option-input>
+  </label>
+</div>

@@ -1,3 +1,14 @@
 <div>
   <app-node-head [node]='node'></app-node-head>
+  <app-node-body [theme]='theme'>
+    <app-choice-option *ngFor='let option of node.options'
+                       [type]='node.selectType'
+                       (handleChange)='handler.handleOptionInput($event, option, node)'
+                       (handleClick)='handler.handleOptionClick(option, node)'
+                       (handleTrigger)='handler.handleAutoCpltInput($event, option, node)'
+                       [theme]='theme'
+                       [handler]='handler'
+                       [option]='option'>
+    </app-choice-option>
+  </app-node-body>
 </div>

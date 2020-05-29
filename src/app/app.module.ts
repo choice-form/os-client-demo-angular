@@ -26,6 +26,8 @@ import { NodeHeadComponent } from './components/partials/node-head/node-head.com
 import { NodeBodyComponent } from './components/partials/node-body/node-body.component';
 import { OptionInputComponent } from './components/partials/option-input/option-input.component';
 import { AutoCompleteComponent } from './components/partials/auto-complete/auto-complete.component';
+import { ChoiceOptionComponent } from './components/partials/choice-option/choice-option.component';
+import { OptionIconComponent } from './components/partials/option-icon/option-icon.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +55,8 @@ import { AutoCompleteComponent } from './components/partials/auto-complete/auto-
     NodeBodyComponent,
     OptionInputComponent,
     AutoCompleteComponent,
+    ChoiceOptionComponent,
+    OptionIconComponent,
   ],
   imports: [
     BrowserModule,

@@ -6,7 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./choice-node.component.scss']
 })
 export class ChoiceNodeComponent implements OnInit {
-  @Input() node: CFQuestion;
+  @Input() node: CFChoiceQuestion;
   @Input() handler: CFUIEventHandler;
   @Input() theme: CFTheme;
   constructor() { }

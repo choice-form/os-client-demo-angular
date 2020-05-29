@@ -8,7 +8,6 @@ import { Core, EventHub } from '@choiceform/os-client-core';
 export class RouteThemesComponent implements OnInit {
   model: CFRealtime;
   noViewNode: CFQuestion;
-  time = 1;
   constructor(appRef: ApplicationRef) {
     Core.initRealtimePreview();
     this.model = Core.realtime;

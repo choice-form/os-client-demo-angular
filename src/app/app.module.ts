@@ -20,6 +20,9 @@ import { TimerComponent } from './components/timer/timer.component';
 import { ProgressBarComponent } from './components/progress-bar/progress-bar.component';
 import { StartPageComponent } from './components/nodes/start-page/start-page.component';
 import { RewardPageComponent } from './components/nodes/reward-page/reward-page.component';
+import { NodeVideoComponent } from './components/partials/node-video/node-video.component';
+import { NodeImageComponent } from './components/partials/node-image/node-image.component';
+import { NodeHeadComponent } from './components/partials/node-head/node-head.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +44,9 @@ import { RewardPageComponent } from './components/nodes/reward-page/reward-page.
     ProgressBarComponent,
     StartPageComponent,
     RewardPageComponent,
+    NodeVideoComponent,
+    NodeImageComponent,
+    NodeHeadComponent,
   ],
   imports: [
     BrowserModule,

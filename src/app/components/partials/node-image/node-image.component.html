@@ -1,0 +1,6 @@
+<div *ngIf='images && images.length > 0'>
+  <img src={{image.large}}
+       *ngFor='let image of images'
+       width='300'
+       title={{image.originName}} />
+</div>

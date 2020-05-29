@@ -3,17 +3,19 @@
 
 
 interface QRCodeConfig {
-  text: string;
-  colorDark: string;
+  color: {
+    dark: string;
+    light: string;
+  };
   width: string | number;
-  height: string | number;
 }
 
-declare module 'qrcodejs2' {
+declare module 'qrcode' {
   const QRCode: QRCode;
   export default QRCode;
 }
 
 interface QRCode {
-  new(element: HTMLElement, config: QRCodeConfig): any;
+  toCanvas(text: string, config: QRCodeConfig,
+    cb: (error: any, canvas: HTMLCanvasElement) => void): any;
 }

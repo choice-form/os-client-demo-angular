@@ -3,7 +3,7 @@
     <app-start-page [model]='model.data'></app-start-page>
   </div>
   <div *ngIf='model.data.isGift'>
-    <app-start-page [model]='model.data'></app-start-page>
+    <app-reward-page [model]='model.data'></app-reward-page>
   </div>
   <div *ngIf='isNode()'>
     <app-lang-list [handler]='model.data.handleEvents'

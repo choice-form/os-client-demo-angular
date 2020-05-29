@@ -1,5 +1,6 @@
 const LangPlugin = require('./tool/lang-plugin/plugin');
 const { getAssetsPath } = require('./tool/dev');
+const path = require('path');
 module.exports = (originConfig) => {
   const env = {
     NODE_ENV: originConfig.watch === true
@@ -23,5 +24,7 @@ module.exports = (originConfig) => {
       options: { local, prefix: getAssetsPath(env, port) }
     }]
   });
+  originConfig.resolve.alias.qrcode
+    = path.join(__dirname, `node_modules/qrcode/build/qrcode.js`);
   return originConfig;
 };

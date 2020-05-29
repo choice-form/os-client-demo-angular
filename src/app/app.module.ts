@@ -28,6 +28,8 @@ import { OptionInputComponent } from './components/partials/option-input/option-
 import { AutoCompleteComponent } from './components/partials/auto-complete/auto-complete.component';
 import { ChoiceOptionComponent } from './components/partials/choice-option/choice-option.component';
 import { OptionIconComponent } from './components/partials/option-icon/option-icon.component';
+import { QrCodeComponent } from './components/partials/qr-code/qr-code.component';
+import { OtherOptionsComponent } from './components/partials/other-options/other-options.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +59,8 @@ import { OptionIconComponent } from './components/partials/option-icon/option-ic
     AutoCompleteComponent,
     ChoiceOptionComponent,
     OptionIconComponent,
+    QrCodeComponent,
+    OtherOptionsComponent,
   ],
   imports: [
     BrowserModule,

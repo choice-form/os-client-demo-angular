@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, AfterViewInit, ElementRef } from '@angular/core';
 import { loadIcon } from 'src/app/module/icon-lib';
 
 @Component({
@@ -6,7 +6,7 @@ import { loadIcon } from 'src/app/module/icon-lib';
   templateUrl: './option-icon.component.html',
   styleUrls: ['./option-icon.component.scss']
 })
-export class OptionIconComponent implements OnInit {
+export class OptionIconComponent implements OnInit, AfterViewInit {
   /**
    * 是否激活
    */
@@ -24,9 +24,9 @@ export class OptionIconComponent implements OnInit {
    */
   @Input() iconUrl: string;
 
-  @ViewChild('iconActive') iconActive: HTMLDivElement;
+  @ViewChild('iconActive') iconActive: ElementRef<HTMLDivElement>;
 
-  @ViewChild('iconNormal') iconNormal: HTMLDivElement;
+  @ViewChild('iconNormal') iconNormal: ElementRef<HTMLDivElement>;
   constructor() { }
 
   /**
@@ -36,10 +36,12 @@ export class OptionIconComponent implements OnInit {
     const { iconActiveUrl, iconUrl, cacheId: id } = this;
     const iconActive = await loadIcon(iconActiveUrl, id);
     const icon = await loadIcon(iconUrl, id);
-    this.iconNormal.appendChild(icon);
-    this.iconActive.appendChild(iconActive);
+    this.iconNormal.nativeElement.appendChild(icon);
+    this.iconActive.nativeElement.appendChild(iconActive);
   }
   ngOnInit(): void {
   }
-
+  ngAfterViewInit(): void {
+    this.initIcon();
+  }
 }

@@ -1,0 +1,19 @@
+<div class='other-options'>
+  <div *ngFor='let option of node.otherOptions'>
+    <app-option-input *ngIf='option.inputType === "input"'
+                      [option]='option'
+                      (handleTrigger)='handler.handleAutoCpltInput($event, option, node)'
+                      (handleChange)='handler.handleOptionInput($event, option, node)'
+                      [theme]='theme'>
+    </app-option-input>
+    <app-choice-option *ngIf='option.inputType !== "input"'
+                       [option]='option'
+                       [type]='node.selectType'
+                       [handler]='handler'
+                       [theme]='theme'
+                       (handleTrigger)='handler.handleAutoCpltInput($event, option, node)'
+                       (handleChange)='handler.handleOptionInput($event, option, node)'
+                       (handleClick)='handler.handleOptionClick(option,node)'>
+    </app-choice-option>
+  </div>
+</div>
